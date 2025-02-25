@@ -1,0 +1,174 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body styling */
+body {
+    font-family: 'Futura', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* Header styling */
+header {
+    background-color: #222;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+/* Navigation styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Hero Section */
+.hero {
+    background-color: #333;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+
+.hero .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+
+.hero .btn:hover {
+    background-color: #218838;
+}
+
+
+/* Info Section */
+.info-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+
+.info-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+
+/* Project Cards */
+.project-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+
+.project-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+
+.project-card .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.project-card .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+
