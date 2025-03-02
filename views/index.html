@@ -3,72 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Club | Krea University</title>
+    <title>Cyber Club</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
     <link rel="stylesheet" href="static/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <!-- JavaScript -->
+    <script src="static/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="logo">⚡ Cyber Club</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Cyber Club</h1>
     </header>
-   
-    <section id="home" class="hero">
-        <h1>Welcome to the Cyber Club</h1>
-        <p>Join us in shaping the future of cybersecurity and ethical hacking.</p>
-        <a href="#projects" class="btn">Explore Projects</a>
+   <header>
+    <button class="hamburger" onclick="toggleMenu()" style="color: white; font-size: 34px; background: none; border: none; cursor: pointer;">☰</button>
+
+
+</header> <!-- Hamburger Button -->
+
+<!-- Sidebar Navigation -->
+<div id="sidebar" class="sidebar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Events</a>
+    <a href="#">Join</a>
+    <a href="#">Contact</a>
+</div>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#signup">Join Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero" id="hero">
+        <img src="https://media-hosting.imagekit.io//ca503e03ff824bae/Cyber_Club_logo-removebg-preview.png?Expires=1835557390&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oJUc84uNm8X8N1YtxcpD5MsBvTv541dpf1cwPkn1xH4nxMLSdGQPQbNcDaU1p7NOvCnKHmh6RRaGRZXICOMp0oaakPsh-q~euXkWZWfCdNEMxRzFzEdcGfDpFNCuK-5YetoDvcp3ALeZbWTBY7ys63P1LbCo1OEZrBcjixof6hoqSUg~4dzGVWqrgqz~-tXA-j3F4Xg5srMzmZYqjegBnAlmu4FcIinggnTkYIhGh-maGK0tbo2KbZn5cUUzwauPXDGuxDhQ64JEus3Y18AC~e0BpNu4BHvZuvnAiOkffio24T~YRoMSI8d5GqvbIPYKVqfKkptaB7Sy9vSGhD7LBw__" alt="Cyber Club Logo">
+        <div class="welcome-section">
+            <h1 class="welcome-text">Welcome to the Cyber Club</h1>
+            <p class="welcome-text">Join us in shaping the future of cybersecurity and ethical hacking.</p>
+        </div>        
     </section>
-   
-    <section id="about" class="info-section">
+    
+    <section id="signup">
+        <h2>Join the Cyber Club</h2>
+        <div class="signup-box">
+            <input type="email" placeholder="Enter your email">
+            <button class="btn">Sign Up</button>
+        </div>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+<div id="g_id_onload"
+     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+     data-login_uri="http://yourbackend.com/auth"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin" data-type="standard"></div>
+
+    </section>
+    
+    <section id="about" class="about-section">
         <h2>About Us</h2>
-        <p>We are a team of passionate tech enthusiasts exploring the world of cybersecurity, ethical hacking, and digital forensics.</p>
+        <p>Cyber Club is a community dedicated to cybersecurity awareness, ethical hacking, and tech innovation.</p>
     </section>
-   
-    <section id="projects" class="info-section">
-        <h2>Our Projects</h2>
-        <div class="project-container">
-            <div class="project-card">
-                <h3>Suggest a New Project</h3>
-                <button class="btn">Sign In</button>
+    <section id = "events" class="events-section">
+        <h2>Upcoming Events</h2>
+        <div class="events-container">
+            <div class="event-card">
+                <h3>Daily Coding Sessions</h3>
+                <p>Join our daily problem-solving and coding practice sessions.</p>
             </div>
-            <div class="project-card">
-                <h3>Apply for an Existing Project</h3>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Roll Number</th>
-                        <th>Description</th>
-                        <th>Apply</th>
-                    </tr>
-                    <tr>
-                        <td>Cyber Security Awareness</td>
-                        <td>Open</td>
-                        <td>12345</td>
-                        <td>Raising awareness about digital threats.</td>
-                        <td><button class="btn">Apply</button></td>
-                    </tr>
-                </table>
+            <div class="event-card">
+                <h3>Movie Screening: "Money Ball"</h3>
+                <p>Enjoy a thrilling data-driven movie experience.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAsg3f67zUcOnVAkNTl4W90HUUrYsJ1dLrb1kGzq9IJL15aA/viewform" target="_blank" class="btn">Register</a>
+            </div>
+            <div class="event-card">
+                <h3>Data Visualization Competition</h3>
+                <p>Showcase your data visualization skills and win exciting prizes.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAsg3f67zUcOnVAkNTl4W90HUUrYsJ1dLrb1kGzq9IJL15aA/viewform" target="_blank" class="btn">Register</a>
+            </div>
+            <div class="event-card">
+                <h3>Hands-on Data Visualization Session</h3>
+                <p>Learn data analysis with Python in a practical workshop.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAsg3f67zUcOnVAkNTl4W90HUUrYsJ1dLrb1kGzq9IJL15aA/viewform" target="_blank" class="btn">Register</a>
             </div>
         </div>
     </section>
-   
-    <section id="contact" class="info-section">
+    
+    <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:sias.cyberclub@krea.edu.in">cyberclub@krea.edu</a></p>
+        <p>Email: <a href="sias.cyberclub@krea.edu.in">sias.cyberclub@krea.edu.in</a></p>
+      <p>Phone Number (Sparsh): +91 9874440116</p>
+      <p>Phone Number (Aarav Akali): +91 82911 52243</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/cyber_club_krea?igsh=OGttdTZrdG11em1h" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="https://github.com/Cyber-Club-Krea-University" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+    </div>
+    
     </section>
-   
-    <footer>
-        <p>&copy; 2025 Cyber Club | Krea University</p>
-    </footer>
+    
+    <button id="backToTop" onclick="scrollToTop()">&#8679; Back to Top</button>
 </body>
 </html>
-

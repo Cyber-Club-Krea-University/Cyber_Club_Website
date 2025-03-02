@@ -1,174 +1,270 @@
-/* Basic Reset */
-* {
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-
-/* Body styling */
-body {
-    font-family: 'Futura', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-
-/* Header styling */
-header {
-    background-color: #222;
-    color: white;
-    padding: 10px 0;
+    background-color: rgba(245, 245, 245, 0);
     text-align: center;
 }
 
-
-header .logo {
-    font-size: 2rem;
-    font-weight: bold;
+header {
+    display: flex;
+    justify-content: space-between; /* Keeps menu and title balanced */
+    align-items: center;
+    background-color: black;
+    padding: 15px;
 }
 
+header h1 {
+    flex: 1;  /* Makes the title take available space */
+    text-align: center; 
+    color: white;
+    font-size: 30px;
+}
 
-/* Navigation styling */
+.welcome-text {
+    color: rgb(12, 0, 0) !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
+
+.welcome-section {
+    background-color: rgba(5, 0, 0, 0); /* or any dark color */
+    padding: 10px;
+}
+
+.welcome-text {
+    color: white;
+}
+
+.hamburger {
+    position: fixed; /* Fixes it to the screen */
+    top: 15px;  
+    left: 15px;
+    font-size: 36px;
+    cursor: pointer;
+    z-index: 1100; /* Ensures it stays above everything */
+    background: none;
+    border: none;
+    color: white !important;
+}
+
+.sidebar {
+    position: fixed;
+    left: -250px; /* Initially hidden */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #333;
+    transition: left 0.3s ease;
+    padding-top: 50px;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #575757;
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #fdf8f800;
+    display: none;
+}
+
+nav.active {
+    display: block;
+}
+
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
-
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    padding: 10px;
 }
-
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
 }
-
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
 
 /* Hero Section */
 .hero {
-    background-color: #333;
-    color: white;
-    padding: 50px 0;
-    text-align: center;
+    background-image: url("https://media-hosting.imagekit.io//d79897aef3364674/5.png?Expires=1835551915&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=EBJm6Tzg0flANgwb7HoD22FpktceDAwprZJGYbznkljW9eBqI1OFB1Ip0ytwLyA0eB9dIXP-pOMcc05BPGBgF346b7SuWvcgOegttBET3iQ3knqp09InayYndFv6waTh5f-tuXrzXA5wb6UCDIzHCRv5kho063E~5f7e~sHKqjcuxfOsHH4nxsjZHMu-BNd0NBlu~hGm6Wg20vBvksA8PgO6sDsSxfp-sWcTIsRx5yzh4k6gM5Qo0LF3T-A~-~IsnB5bHYcu0nBpQZNYu8ljCtaNH1o9f5pNgrdldqJsqhMETDyHwcfSsPs00ZUbQDzDjOBgKBMc5vI9C5g9uH4Ixg__");
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    color: rgba(255, 255, 255, 0);
 }
 
+.hero img {
+    width: 150px;
+}
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 2em;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateX(-10px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-
-.hero .btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 5px;
-}
-
-
-.hero .btn:hover {
-    background-color: #218838;
-}
-
-
-/* Info Section */
-.info-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-
-.info-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-
-/* Project Cards */
-.project-container {
+/* Signup Box */
+.signup-box {
+    margin-top: 20px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-
-.project-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    width: 30%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-.project-card h3 {
-    font-size: 1.8rem;
+.signup-box input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px; /* Makes the input box curved */
+    border: 1px solid #ccc;
+    outline: none;
+    display: block; /* Ensures it takes full width */
     margin-bottom: 10px;
 }
 
-
-.project-card .btn {
-    background-color: #007bff;
-    color: white;
+.signup-box .btn {
     padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
+    background-color: #9bbc2b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
 }
 
-
-.project-card .btn:hover {
-    background-color: #0056b3;
+/* About Section */
+.about-section {
+    padding: 50px;
+    background-color: #eaeaea;
+    position: relative;
+}
+.about-section::before {
+    content: '🔹';
+    position: absolute;
+    left: -30px;
+    font-size: 24px;
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* Contact Section */
+.contact-section {
+    padding: 50px;
+    background-color: #222;
+    color: white;
+    position: relative;
+}
+.contact-section::before {
+    content: '📞';
+    position: absolute;
+    left: -30px;
+    font-size: 24px;
+    animation: fadeIn 1s ease-in-out;
+}
 
-/* Table Styling */
-table {
+.contact-section a {
+    color: #00aced;
+}
+
+.social-icons a {
+    color: white;
+    margin: 10px;
+}
+.events-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.event-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-
-table th, table td {
+.event-table th, .event-table td {
+    border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
-    border: 1px solid #ddd;
 }
 
-
-table th {
+.event-table th {
     background-color: #007bff;
     color: white;
 }
 
-
-/* Footer */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+.event-table a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
+.event-table a:hover {
+    text-decoration: underline;
+}
 
+.events-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
 
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.event-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.event-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
