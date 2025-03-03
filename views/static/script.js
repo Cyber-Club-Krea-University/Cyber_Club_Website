@@ -3,26 +3,31 @@ function toggleMenu() {
     var sidebar = document.getElementById("sidebar");
     var hamburger = document.querySelector(".hamburger");
 
+
     sidebar.classList.toggle("active"); // Toggle menu visibility
+
 
     // Change ☰ to ✖ when open
     if (sidebar.classList.contains("active")) {
-        hamburger.innerHTML = "✖"; 
+        hamburger.innerHTML = "✖";
     } else {
         hamburger.innerHTML = "☰";
     }
 }
+
 
 // Close the menu when clicking outside or clicking a link inside it
 document.addEventListener("click", function(event) {
     var sidebar = document.getElementById("sidebar");
     var hamburger = document.querySelector(".hamburger");
 
+
     if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
         sidebar.classList.remove("active");
         hamburger.innerHTML = "☰"; // Reset icon
     }
 });
+
 
 // Ensure menu closes when clicking a link inside it
 document.querySelectorAll(".sidebar a").forEach(link => {
@@ -31,6 +36,7 @@ document.querySelectorAll(".sidebar a").forEach(link => {
         document.querySelector(".hamburger").innerHTML = "☰";
     });
 });
+
 
 // Form Validation for Krea Email
 document.addEventListener("DOMContentLoaded", function () {
@@ -41,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var emailInput = document.getElementById("email");
             var email = emailInput.value;
             var errorMsg = document.getElementById("error-message");
+
 
             if (!(email.endsWith("@krea.edu.in") || email.endsWith("@krea.ac.in"))) {
                 errorMsg.textContent = "Please use a valid Krea email (example@krea.edu.in)";
@@ -56,15 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
 // Dark Mode Toggle
 document.addEventListener("DOMContentLoaded", function () {
     const darkModeToggle = document.getElementById("darkModeToggle");
     const body = document.body;
 
+
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
         darkModeToggle.innerHTML = "☀ Light Mode";
     }
+
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", function () {
@@ -74,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 // Hero Text Animation (Hacker Effect)
 function hackerEffect(text, element, speed = 50) {
@@ -93,12 +104,35 @@ function hackerEffect(text, element, speed = 50) {
     }, speed);
 }
 
+function signInWithGoogle() {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user;
+            const emailDomain = user.email.split("@")[1];
+
+            // Allow only Krea emails
+            if (emailDomain !== "krea.edu.in" && emailDomain !== "krea.ac.in") {
+                alert("Only Krea email addresses (krea.edu.in / krea.ac.in) are allowed!");
+                return;
+            }
+
+            console.log("User signed in:", user);
+            alert(`Welcome, ${user.displayName}!`);
+        })
+        .catch((error) => {
+            console.error("Error signing in:", error.code, error.message);
+            alert(`Sign-in failed! Error: ${error.message}`);
+        });
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const heroHeading = document.getElementById("hero-heading");
     if (heroHeading) {
         hackerEffect("Welcome to the Cyber Club", heroHeading);
     }
 });
+
 
 // Back to Top Button
 window.onscroll = function () {
@@ -107,6 +141,9 @@ window.onscroll = function () {
         button.style.display = document.documentElement.scrollTop > 100 ? "block" : "none";
     }
 };
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     var backToTopBtn = document.getElementById("backToTop");
@@ -116,3 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+

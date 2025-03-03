@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Club</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="static/styles.css">
     <!-- JavaScript -->
@@ -13,21 +13,19 @@
 </head>
 <body>
     <header>
-        <h1>Cyber Club</h1>
+     <h1>Cyber Club </h1>
     </header>
    <header>
     <button class="hamburger" onclick="toggleMenu()" style="color: white; font-size: 34px; background: none; border: none; cursor: pointer;">☰</button>
-
-
 </header> <!-- Hamburger Button -->
 
-<!-- Sidebar Navigation -->
+
 <div id="sidebar" class="sidebar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Events</a>
-    <a href="#">Join</a>
-    <a href="#">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#about">About</a>
+    <a href="#signup">Join Us</a>
+    <a href="#contact">Contact</a>
 </div>
 
     <nav id="menu">
@@ -39,35 +37,98 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+   
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        
+        // Your Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8pUaVC_Ijh40H2YIeUsQKpiZjywMUp9I",
+            authDomain: "cyber-club-website-c6a1f.firebaseapp.com",
+            projectId: "cyber-club-website-c6a1f",
+            storageBucket: "cyber-club-website-c6a1f.appspot.com",
+            messagingSenderId: "605998619410",
+            appId: "1:605998619410:web:a63eb69e60b2a901bdf1cb",
+            measurementId: "G-GPE22P2S0D"
+        };
     
-    <section class="hero" id="hero">
-        <img src="https://media-hosting.imagekit.io//ca503e03ff824bae/Cyber_Club_logo-removebg-preview.png?Expires=1835557390&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oJUc84uNm8X8N1YtxcpD5MsBvTv541dpf1cwPkn1xH4nxMLSdGQPQbNcDaU1p7NOvCnKHmh6RRaGRZXICOMp0oaakPsh-q~euXkWZWfCdNEMxRzFzEdcGfDpFNCuK-5YetoDvcp3ALeZbWTBY7ys63P1LbCo1OEZrBcjixof6hoqSUg~4dzGVWqrgqz~-tXA-j3F4Xg5srMzmZYqjegBnAlmu4FcIinggnTkYIhGh-maGK0tbo2KbZn5cUUzwauPXDGuxDhQ64JEus3Y18AC~e0BpNu4BHvZuvnAiOkffio24T~YRoMSI8d5GqvbIPYKVqfKkptaB7Sy9vSGhD7LBw__" alt="Cyber Club Logo">
-        <div class="welcome-section">
-            <h1 class="welcome-text">Welcome to the Cyber Club</h1>
-            <p class="welcome-text">Join us in shaping the future of cybersecurity and ethical hacking.</p>
-        </div>        
-    </section>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
     
-    <section id="signup">
-        <h2>Join the Cyber Club</h2>
-        <div class="signup-box">
-            <input type="email" placeholder="Enter your email">
-            <button class="btn">Sign Up</button>
+        // Function to Sign In with Google
+        function signInWithGoogle() {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    const emailDomain = user.email.split("@")[1];
+    
+                    // Allow only Krea emails
+                    if (emailDomain !== "krea.edu.in" && emailDomain !== "krea.ac.in") {
+                        alert("Only Krea email addresses (krea.edu.in / krea.ac.in) are allowed!");
+                        return;
+                    }
+    
+                    console.log("User signed in:", user);
+                    alert(`Welcome, ${user.displayName}!`);
+                })
+                .catch((error) => {
+                    console.error("Error signing in:", error);
+                    alert("Sign-in failed! Please try again.");
+                });
+        }
+    
+        // Expose the function globally so it can be called in HTML
+        window.signInWithGoogle = signInWithGoogle;
+    </script>
+    
+    
+   
+   <section style="text-align: center; padding: 60px 20px; background-color: #f9f9f9; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); max-width: 700px; margin: auto;">
+    <img src="https://media-hosting.imagekit.io//ca503e03ff824bae/Cyber_Club_logo-removebg-preview.png?Expires=1835557390&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oJUc84uNm8X8N1YtxcpD5MsBvTv541dpf1cwPkn1xH4nxMLSdGQPQbNcDaU1p7NOvCnKHmh6RRaGRZXICOMp0oaakPsh-q~euXkWZWfCdNEMxRzFzEdcGfDpFNCuK-5YetoDvcp3ALeZbWTBY7ys63P1LbCo1OEZrBcjixof6hoqSUg~4dzGVWqrgqz~-tXA-j3F4Xg5srMzmZYqjegBnAlmu4FcIinggnTkYIhGh-maGK0tbo2KbZn5cUUzwauPXDGuxDhQ64JEus3Y18AC~e0BpNu4BHvZuvnAiOkffio24T~YRoMSI8d5GqvbIPYKVqfKkptaB7Sy9vSGhD7LBw__" alt="Cyber Club Logo" style="width: 150px; margin-bottom: 20px;">
+    <h2 style="font-size: 2.2rem; font-weight: bold; color: #222;">Welcome to the Cyber Club</h2>
+    <p style="font-size: 1.2rem; color: #555; max-width: 600px; margin: auto; line-height: 1.6;">
+        Join us to foster and build a community of people interested in coding and computational science,
+        as well as adjacent disciplines such as computer science, data science, and artificial
+        intelligence.
+    </p>
+    
+    <div style="margin-top: 40px;">
+        <h3 style="font-size: 1.8rem; font-weight: bold; color: #222;">Join the Cyber Club</h3>
+        <div style="margin-top: 20px;">
+            <button style="background-color: #6aaf08; color: white; border: none; padding: 14px 28px; 
+                           font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s;"
+                    onmouseover="this.style.backgroundColor='#5c9e07'" 
+                    onmouseout="this.style.backgroundColor='#6aaf08'" 
+                    onclick="signInWithGoogle()">
+                Sign Up with Google
+            </button>
         </div>
-        <script src="https://accounts.google.com/gsi/client" async defer></script>
-<div id="g_id_onload"
-     data-client_id="YOUR_GOOGLE_CLIENT_ID"
-     data-login_uri="http://yourbackend.com/auth"
-     data-auto_prompt="false">
-</div>
-<div class="g_id_signin" data-type="standard"></div>
+    </div>
+</section>
+
+    
+
+    
+
 
     </section>
-    
+   
     <section id="about" class="about-section">
         <h2>About Us</h2>
-        <p>Cyber Club is a community dedicated to cybersecurity awareness, ethical hacking, and tech innovation.</p>
+        <p>The Cyber Club at Krea is a community for coding enthusiasts and computational science explorers. Our vision is to make coding, data science, and AI accessible and engaging through fun activities, competitions, and hands-on projects. We aim to digitize campus processes like parcel management and registration while fostering a collaborative learning environment.</p>
+        <p>Our mission includes:</p>
+        <p><ul>
+            <li>Offering tutoring for computational courses like ICT and Statistics Programming.</li>
+            <li>Conducting workshops on coding, game development, IoT, and Python.</li>
+            <li>Organizing regular problem-solving meetups and discussions.</li>
+            <li>Engaging in coding competitions and real-world projects using platforms like GitHub.</li>
+        </ul></p>
     </section>
+    
     <section id = "events" class="events-section">
         <h2>Upcoming Events</h2>
         <div class="events-container">
@@ -92,7 +153,7 @@
             </div>
         </div>
     </section>
-    
+   
     <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
         <p>Email: <a href="sias.cyberclub@krea.edu.in">sias.cyberclub@krea.edu.in</a></p>
@@ -102,9 +163,12 @@
         <a href="https://www.instagram.com/cyber_club_krea?igsh=OGttdTZrdG11em1h" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
         <a href="https://github.com/Cyber-Club-Krea-University" target="_blank"><i class="fab fa-github fa-2x"></i></a>
     </div>
-    
+   
     </section>
-    
+   
     <button id="backToTop" onclick="scrollToTop()">&#8679; Back to Top</button>
 </body>
 </html>
+
+
+
