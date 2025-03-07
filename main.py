@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from . import tables
-from .database import Base, engine
+from src.database_management.database import Base, engine
 
 #Generate tables in database
 Base.metadata.create_all(bind=engine)

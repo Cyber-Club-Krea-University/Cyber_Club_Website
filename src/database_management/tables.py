@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from .database import Base
 from datetime import datetime
-from sqlalchemy.orm import relationship 
+from sqlalchemy.orm import relationship
+from datetime import datetime
 
 class User(Base):
     __tablename__= "user"
@@ -16,5 +17,5 @@ class Project(Base):
     name= Column(String)
     description=Column(String)
     type = Column(String)
-    #date= Column(DateTime, default=datetime('now'))  
+    date= Column(datetime, default=datetime('now'))  
     status= Column(String)
