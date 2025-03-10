@@ -16,3 +16,7 @@ def all(db: Session=Depends(database.get_db)):
 #     return project_rep.create_project(request,db )
 def create(request: schemas.project_create, db: Session = Depends(database.get_db)):  
     return project_rep.create_project(request, db)
+
+@router.put('/{id}', status_code=status.HTTP_202_ACCEPTED)
+def update(id, request:schemas.project_create, db :Session = Depends(database.get_db)):
+   return project_rep.update(id,request,db)

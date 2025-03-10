@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-#from fastapi import HTTPException,status
+from fastapi import HTTPException,status
 from src.database_management import tables
 from sqlalchemy.sql import func
 
@@ -17,3 +17,16 @@ def create_project(request, db:Session):
     db.commit()
     db.refresh(new_p)
     return new_p
+
+def update(id,request, db:Session):
+    project =db.query(tables.Project).filter(tables.Project.id==id)
+    select=project.first
+    if not select:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, 
+            detail=f"Blog with id {id} does not exist"
+        )
+    project.update(request.model_dump())
+    db.commit()
+    return {'ok, updated'} 
+
