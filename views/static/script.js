@@ -15,6 +15,38 @@ function toggleMenu() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const signupForm = document.getElementById("signup-form");
+    const profileIcon = document.getElementById("profile-icon");
+
+    // Debugging - Check if elements exist
+    console.log("Signup Form Found:", signupForm !== null);
+    console.log("Profile Icon Found:", profileIcon !== null);
+
+    // Check if user already signed up (persistent storage)
+    if (localStorage.getItem("userSignedUp")) {
+        profileIcon.style.display = "block"; // Show profile icon
+    }
+
+    if (signupForm) {
+        signupForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            // Show Profile Icon
+            profileIcon.style.display = "block";
+
+            // Save signup status in localStorage (so it persists after refresh)
+            localStorage.setItem("userSignedUp", "true");
+
+            // Scroll smoothly to Events section
+            document.getElementById("events").scrollIntoView({ behavior: "smooth" });
+
+            // Optional: Show success message
+            alert("Signup successful! Check out our upcoming events.");
+        });
+    }
+});
+
 
 // Close the menu when clicking outside or clicking a link inside it
 document.addEventListener("click", function(event) {
