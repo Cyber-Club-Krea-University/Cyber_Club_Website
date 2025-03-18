@@ -22,3 +22,9 @@ class Project(Base):
     status= Column(String)
     user_id = Column(Integer, ForeignKey('user.id'))
     member = relationship("User", back_populates="projects")
+
+class Roles(Base):
+    __tablename__="roles"
+    id= Column(Integer, primary_key=True, index=True)
+    role_name=Column(String)
+    desc=Column(String)
