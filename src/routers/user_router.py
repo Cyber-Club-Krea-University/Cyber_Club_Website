@@ -14,3 +14,7 @@ def create(request: schemas.user_create, db: Session = Depends(database.get_db))
 @router.get('/',status_code=status.HTTP_200_OK)
 def all(db: Session=Depends(database.get_db)):
     return user_rep.get_all(db)
+
+@router.delete('/{id}/', status_code=status.HTTP_200_OK)
+def delete(id, db:Session=Depends(database.get_db)):
+    return user_rep.destroy_user(id, db)

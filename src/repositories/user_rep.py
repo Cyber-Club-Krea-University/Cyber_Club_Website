@@ -15,3 +15,8 @@ def create_user(request, db:Session):
 def get_all(db: Session):
     p= db.query(tables.User).all()
     return p
+
+def destroy_user(id, db:Session):
+    db.query(tables.User).filter(tables.User.id==id).delete(synchronize_session=False)
+    db.commit()
+    return{'deletion successful'}
