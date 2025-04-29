@@ -26,4 +26,6 @@ class user_full(BaseModel):
     email: str
     projects: str
 
-
+class login(BaseModel):
+    email:str
+    password:str

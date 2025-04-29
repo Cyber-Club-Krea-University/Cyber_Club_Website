@@ -11,6 +11,7 @@ class User(Base):
     name= Column(String)
     email= Column(String)
     projects = relationship("Project", back_populates="member")
+    password = Column(String)
 
 class Project(Base):
     __tablename__="project"
